@@ -3,7 +3,15 @@ service: api-alumnos-rds-v2
 
 provider:
   name: aws
+  region: us-east-1
   runtime: python3.13
+  memorySize: 1024
+  timeout: 20
+
+  # 👉 Usa un rol IAM ya existente para evitar errores de permisos
+  iam:
+    role: arn:aws:iam::744127473797:role/LabRole
+
   environment:
     DB_SECRET_ARN: ${sls:stage}/alumnos
     DB_NAME: ${sls:stage}
@@ -20,4 +28,3 @@ functions:
           path: /alumnos/listar
           method: get
           cors: true
-
