@@ -7,18 +7,15 @@ provider:
   runtime: python3.13
   memorySize: 1024
   timeout: 20
-
-  # Usa el rol existente para evitar error de permisos
   iam:
     role: arn:aws:iam::744127473797:role/LabRole
-
   environment:
     DB_SECRET_ARN: ${sls:stage}/alumnos
     DB_NAME: ${sls:stage}
 
 functions:
   listar:
-    handler: ListarAlumno.lambda_handler  # 👈 Asegúrate que tu archivo se llame así
+    handler: ListarAlumno.lambda_handler
     package:
       include:
         - ListarAlumno.py
