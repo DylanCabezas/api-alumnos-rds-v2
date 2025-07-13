@@ -1,8 +1,6 @@
 org: dylancabezas
 service: api-alumnos-rds-v2
 
-frameworkVersion: '3'
-
 provider:
   name: aws
   region: us-east-1
