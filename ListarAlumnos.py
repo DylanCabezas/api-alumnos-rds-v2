@@ -4,9 +4,11 @@ import os
 import json
 
 def lambda_handler(event, context):
+
     secret_id = os.environ['DB_SECRET_ARN']
     database = os.environ['DB_NAME']
 
+    # Leer el secreto desde AWS Secrets Manager
     sm = boto3.client('secretsmanager')
     response = sm.get_secret_value(SecretId=secret_id)
     secret = json.loads(response['SecretString'])
@@ -14,6 +16,8 @@ def lambda_handler(event, context):
     host = secret['host']
     user = secret['username']
     password = secret['password']
+
+    connection = None
 
     try:
         connection = pymysql.connect(
