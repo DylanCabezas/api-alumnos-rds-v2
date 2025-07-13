@@ -1,5 +1,5 @@
 org: dylancabezas
-service: api-alumnos-rds
+service: api-alumnos-rds-v2
 
 frameworkVersion: '3'
 
