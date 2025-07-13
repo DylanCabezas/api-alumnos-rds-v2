@@ -1,8 +1,11 @@
 org: dylancabezas
-service: api-alumnos-rds-v2
+service: api-alumnos-rds
+
+frameworkVersion: '3'
 
 provider:
   name: aws
+  region: us-east-1
   runtime: python3.13
   memorySize: 1024
   timeout: 20
@@ -17,10 +20,14 @@ functions:
     handler: ListarAlumnos.lambda_handler
     package:
       include:
-        - ./**
+        - ListarAlumnos.py
+        - pymysql/**    # Incluye pymysql al paquete
     events:
       - http:
           path: /alumnos/listar
           method: get
           cors: true
           integration: lambda
+
+package:
+  individually: true
