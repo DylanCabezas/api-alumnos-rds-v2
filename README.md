@@ -26,9 +26,13 @@ En este ejercicio implementaremos una API RESTful que lista alumnos almacenados 
 
 api-alumnos-rds-v2/
 │
+
 ├── ListarAlumnos.py # Lógica Lambda
+
 ├── serverless.yml # Configuración Serverless Framework
+
 ├── requirements.txt # pymysql
+
 └── pymysql/ # Librería instalada
 
 pgsql
