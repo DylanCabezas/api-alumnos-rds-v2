@@ -35,10 +35,6 @@ api-alumnos-rds-v2/
 
 └── pymysql/ # Librería instalada
 
-pgsql
-Copiar
-Editar
-
 ---
 
 ## 🗃️ Base de datos en Amazon RDS (MySQL)
@@ -80,8 +76,11 @@ sls deploy --stage prod
 
 🌐 Endpoints
 Stage	URL
+
 dev	https://p1ds8bh0i1.execute-api.us-east-1.amazonaws.com/dev/alumnos/listar
+
 test	https://p1ds8bh0i1.execute-api.us-east-1.amazonaws.com/test/alumnos/listar
+
 prod	https://p1ds8bh0i1.execute-api.us-east-1.amazonaws.com/prod/alumnos/listar
 
 ✅ Resultado esperado
