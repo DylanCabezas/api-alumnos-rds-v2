@@ -15,6 +15,8 @@ def lambda_handler(event, context):
     user = secret['username']
     password = secret['password']
 
+    connection = None  # ✅ Agregado aquí
+
     try:
         connection = pymysql.connect(
             host=host,
@@ -40,5 +42,5 @@ def lambda_handler(event, context):
         }
 
     finally:
-        if connection:
+        if connection:  # ✅ Solo cierra si fue creada
             connection.close()
