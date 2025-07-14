@@ -63,6 +63,8 @@ GRANT ALL PRIVILEGES ON test.* TO 'user_test'@'%';
 
 CREATE DATABASE prod;
 GRANT ALL PRIVILEGES ON prod.* TO 'user_prod'@'%';
+```
+
 🚀 Despliegue
 bash
 Copiar
@@ -71,6 +73,7 @@ pip install pymysql -t .
 sls deploy --stage dev
 sls deploy --stage test
 sls deploy --stage prod
+
 🌐 Endpoints
 Stage	URL
 dev	https://p1ds8bh0i1.execute-api.us-east-1.amazonaws.com/dev/alumnos/listar
@@ -86,6 +89,8 @@ Editar
   ["2025100002", "Ruiz Hinojosa", "Fernanda"],
   ["2025100003", "Colchado Li", "Carolina"]
 ]
+
+
 🧑‍💻 Autor
 Dylan Cabezas
 CS2032
