@@ -3,7 +3,6 @@ service: api-alumnos-rds-v2
 
 provider:
   name: aws
-  region: us-east-1
   runtime: python3.13
   memorySize: 1024
   timeout: 20
@@ -15,13 +14,13 @@ provider:
 
 functions:
   listar:
-    handler: ListarAlumno.lambda_handler
+    handler: ListarAlumnos.lambda_handler
     package:
       include:
-        - ListarAlumno.py
-        - pymysql/**
+        - ./**
     events:
       - http:
           path: /alumnos/listar
           method: get
           cors: true
+          integration: lambda
