@@ -8,15 +8,17 @@ En este ejercicio implementaremos una API RESTful que lista alumnos almacenados 
 
 > Implementar el `api-alumnos-rds-v2` reemplazando el uso de **Systems Manager Parameter Store** por **AWS Secrets Manager**
 
+---
+
 ## ⚙️ Tecnología utilizada
 
-- AWS Lambda
-- API Gateway
-- AWS Secrets Manager ✅
-- Amazon RDS (MySQL)
-- Serverless Framework
-- Python 3.13
-- PyMySQL
+- AWS Lambda  
+- API Gateway  
+- AWS Secrets Manager ✅  
+- Amazon RDS (MySQL)  
+- Serverless Framework  
+- Python 3.13  
+- PyMySQL  
 
 ---
 
@@ -29,10 +31,15 @@ api-alumnos-rds-v2/
 ├── requirements.txt # pymysql
 └── pymysql/ # Librería instalada
 
-🗃️ Base de datos en Amazon RDS (MySQL)
-sql
+pgsql
 Copiar
 Editar
+
+---
+
+## 🗃️ Base de datos en Amazon RDS (MySQL)
+
+```sql
 CREATE DATABASE dev;
 USE dev;
 
@@ -79,7 +86,6 @@ Editar
   ["2025100002", "Ruiz Hinojosa", "Fernanda"],
   ["2025100003", "Colchado Li", "Carolina"]
 ]
-
 🧑‍💻 Autor
 Dylan Cabezas
 CS2032
