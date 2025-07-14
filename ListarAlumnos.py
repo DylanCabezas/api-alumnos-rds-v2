@@ -15,21 +15,30 @@ def lambda_handler(event, context):
     user = secret['username']
     password = secret['password']
 
-    connection = pymysql.connect(
-        host=host,
-        user=user,
-        password=password,
-        db=database,
-        connect_timeout=5
-    )
+    try:
+        connection = pymysql.connect(
+            host=host,
+            user=user,
+            password=password,
+            db=database,
+            connect_timeout=5
+        )
 
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT * FROM alumnos;")
-        results = cursor.fetchall()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM alumnos;")
+            results = cursor.fetchall()
 
-    connection.close()
+        return {
+            "statusCode": 200,
+            "body": json.dumps(results, default=str)
+        }
 
-    return {
-        "statusCode": 200,
-        "body": json.dumps(results, default=str)
-    }
+    except Exception as e:
+        return {
+            "statusCode": 500,
+            "error": str(e)
+        }
+
+    finally:
+        if connection:
+            connection.close()
